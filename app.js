@@ -15,7 +15,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// เรียกใช้งานฐานข้อมูล FireStore ของระบบ Firebase
+// -------------------------------------------------
+
+// * เรียกใช้งานฐานข้อมูล FireStore ของระบบ Firebase
 const db = getFirestore (app)
 
 const getEmployee = async (db) => {
@@ -54,7 +56,7 @@ function showData (employee) {
     btn.setAttribute ("data-id", employee.id)
     deleteCol.appendChild (btn)
 
-    // การลบข้อมูล
+    // * การลบข้อมูล
     btn.addEventListener("click", (event) => {
         alert ("ลบข้อมูลแล้ว")
         let id = event.target.getAttribute ("data-id")
