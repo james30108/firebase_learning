@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
 
 // * ติดต่อ Firebase
 const firebaseConfig = {
@@ -23,8 +23,9 @@ const app = initializeApp(firebaseConfig);
 const auth          = getAuth (app)
 
 // ตัวแปร
-const formarea     = document.getElementById ("form-area")
+const formarea      = document.getElementById ("form-area")
 const registerform  = document.getElementById ("registerform")
+const profile       = document.getElementById ("profile")
 
 // เมื่อทำการกด submit
 registerform.addEventListener("submit", (event) => {
@@ -35,17 +36,25 @@ registerform.addEventListener("submit", (event) => {
     const email     = registerform.email.value
     const password  = registerform.password.value
 
-
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+        
         // Signed in 
         const user = userCredential.user;
+        
+        // รีเซ็ตให้ form เป้นค่าว่าง
+        registerform.email.value    = ""
+        registerform.password.value = ""
+
+        // เปลี่ยนรูปแบบการแสดงของหน้าจอ
+
         // ...
-        console.log ("สร้างบัญชีเสร็จเรียบร้อย")
+        alert ("สร้างบัญชีเสร็จเรียบร้อย")
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log (errorMessage)
+        alert (errorMessage)
     });
+    
 })
