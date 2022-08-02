@@ -16,7 +16,7 @@
         <h4 class="mb-5">Firebase Authentication</h4>
 
         <div id="form-area">
-            <form class="row g-3" id="registerform">
+            <form class="row g-3 card m-5 p-5" id="loginform">
                 <div class="col-12">
                     <input type="text" class="form-control" placeholder="email" aria-label="email" name="email">
                 </div>
@@ -24,13 +24,25 @@
                     <input type="text" class="form-control" placeholder="password" aria-label="password" name="password">
                 </div>
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">signin</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form> 
+            <hr>
+            <form class="row g-3 card m-5 p-5" id="registerform">
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="email" aria-label="email" name="email">
+                </div>
+                <div class="col-12">
+                    <input type="text" class="form-control" placeholder="password" aria-label="password" name="password">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">signin</button>
                 </div>
             </form> 
         </div>  
         
         <div id="profile" class="mt-5">
-            <h4>Profile</h4>
+            <h5 id="welcome"></h5>
             <button id="logout" class="btn btn-primary">ออกจากระบบ</button>
         </div>
     </div>
